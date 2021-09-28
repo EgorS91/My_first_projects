@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 1</title>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="basicJS.js"></script>
+    <script src="ObjectsJS.js"></script>
+    <script src="TypeofData.js"></script>
+    <style>
+      /* td {
+        width: 50px;
+        height: 50px;
+      } */
+
+      /* .notification {
+        position: fixed;
+        z-index: 1000;
+        padding: 5px;
+        border: 1px solid black;
+        font-size: 20px;
+        background: white;
+        text-align: center;
+      }
+
+      .welcome {
+        background: #b80000;
+        color: yellow;
+      } */
+      /* #field {
+        width: 200px;
+        border: 10px groove black;
+        background-color: #00ff00;
+        position: relative;
+      }
+
+      #ball {
+        position: absolute;
+      } */
+      /* body {
+        padding: 20px 0 0 20px;
+        cursor: pointer;
+      }
+
+      #field {
+        overflow: hidden;
+        width: 200px;
+        height: 150px;
+        border-top: 10px solid black;
+        border-right: 10px solid gray;
+        border-bottom: 10px solid gray;
+        border-left: 10px solid black;
+        background-color: #00ff00;
+        font: 10px/1.2 monospace;
+      }
+
+      .triangle-right {
+        position: relative;
+        width: 0;
+        height: 0;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        border-left: 20px solid red;
+        text-indent: -20px;
+        font: 12px/1 monospace;
+      } */
+      /* .note {
+        position: fixed;
+        z-index: 1000;
+        padding: 5px;
+        border: 1px solid black;
+        background: white;
+        text-align: center;
+        font: italic 14px serif;
+      }
+
+      blockquote {
+        background: #f9f9f9;
+        border-left: 10px solid #ccc;
+        margin: 0 0 0 100px;
+        padding: 0.5em 10px;
+        quotes: "\201C""\201D""\2018""\2019";
+        display: inline-block;
+        white-space: pre;
+      }
+
+      blockquote:before {
+        color: #ccc;
+        content: open-quote;
+        font-size: 4em;
+        line-height: 0.1em;
+        margin-right: 0.25em;
+        vertical-align: -0.4em;
+      }*/
+      /* body {
+        height: 2000px;
+      }
+
+      #field {
+        width: 200px;
+        height: 150px;
+        border: 10px solid black;
+        background-color: #00ff00;
+        overflow: hidden;
+        cursor: pointer;
+      } */
+      /* body {
+        margin: 10px auto;
+        width: 470px;
+      }
+
+      h3 {
+        margin: 0;
+        padding-bottom: 0.3em;
+        font-size: 1.1em;
+      }
+
+      p {
+        margin: 0;
+        padding: 0 0 0.5em;
+      }
+
+      .pane {
+        background: #edf5e1;
+        padding: 10px 20px 10px;
+        border-top: solid 2px #c4df9b;
+        position: relative;
+      }
+
+      .remove-button {
+        position: absolute;
+        font-size: 110%;
+        color: darkred;
+        right: 10px;
+        width: 24px;
+        height: 24px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+      } */
+      /* .arrow {
+        padding: 0;
+        background: #ddd;
+        border-radius: 15px;
+        border: 1px solid gray;
+        font-size: 18px;
+        line-height: 24px;
+        color: #444;
+        display: block;
+        position: absolute;
+        top: 50px;
+        left: 2px;
+      }
+
+      .arrow:focus {
+        outline: none;
+      }
+
+      .arrow:hover {
+        background: #ccc;
+        cursor: pointer;
+      }
+
+      ul {
+        height: 130px;
+        width: 9999px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0;
+      }
+
+      ul img {
+        width: 130px;
+        height: 130px;
+        display: block; 
+      }
+
+      ul li {
+        display: inline-block; 
+      } */
+    </style>
+  </head>
+
+  <body>
+    <!-- <button class="arrow">⇦</button>
+    <button class="arrow">⇨</button>
+
+    <ul>
+      <li><img src="https://ru.js.cx/carousel/1.png" /></li>
+      <li><img src="https://ru.js.cx/carousel/2.png" /></li>
+      <li><img src="https://ru.js.cx/carousel/3.png" /></li>
+      <li><img src="https://ru.js.cx/carousel/4.png" /></li>
+      <li><img src="https://ru.js.cx/carousel/5.png" /></li>
+      <li><img src="https://ru.js.cx/carousel/6.png" /></li>
+      <li><img src="https://ru.js.cx/carousel/7.png" /></li>
+      <li><img src="https://ru.js.cx/carousel/8.png" /></li>
+      <li><img src="https://ru.js.cx/carousel/9.png" /></li>
+      <li><img src="https://ru.js.cx/carousel/10.png" /></li>
+    </ul> -->
+    <!--     <div>
+      <div class="pane">
+        <h3>Лошадь</h3>
+        <p>
+          Домашняя лошадь — животное семейства непарнокопытных, одомашненный и
+          единственный сохранившийся подвид дикой лошади, вымершей в дикой
+          природе, за исключением небольшой популяции лошади Пржевальского.
+        </p>
+      </div>
+      <div class="pane">
+        <h3>Осёл</h3>
+        <p>
+          Домашний осёл (лат. Equus asinus asinus), или ишак, — одомашненный
+          подвид дикого осла (Equus asinus), сыгравший важную историческую роль
+          в развитии хозяйства и культуры человека и по-прежнему широко в
+          хозяйстве многих развивающихся стран.
+        </p>
+      </div>
+      <div class="pane">
+        <h3>Кошка</h3>
+        <p>
+          Кошка, или домашняя кошка (лат. Felis silvestris catus), — домашнее
+          животное, одно из наиболее популярных(наряду с собакой)
+          «животных-компаньонов». Являясь одиночным охотником на грызунов и
+          других мелких животных, кошка — социальное животное, использующее для
+          общения широкий диапазон звуковых сигналов.
+        </p>
+      </div>
+    </div> -->
+
+    <!-- <span>▶ Сладости (нажми меня)!</span>
+    <span>▼ Сладости (нажми меня)!</span>
+
+    <ul>
+      <li>Пирожное</li>
+      <li>Пончик</li>
+      <li>Мёд</li>
+    </ul> -->
+    <!-- <div id="field">
+      <img src="https://ru.js.cx/clipart/ball.svg" id="ball" /> . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . .
+    </div> -->
+    <!-- <input type="button" id="hider" value="Нажмите, чтобы спрятать текст" />
+
+    <div id="text">Текст</div> -->
+    <!-- <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit
+      sint atque dolorum fuga ad incidunt voluptatum error fugiat animi amet!
+      Odio temporibus nulla id unde quaerat dignissimos enim nisi rem provident
+      molestias sit tempore omnis recusandae esse sequi officia sapiente.
+    </p>
+
+    <blockquote>
+      Teacher: Why are you late? Student: There was a man who lost a hundred
+      dollar bill. Teacher: That's nice. Were you helping him look for it?
+      Student: No. I was standing on it.
+    </blockquote>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit
+      sint atque dolorum fuga ad incidunt voluptatum error fugiat animi amet!
+      Odio temporibus nulla id unde quaerat dignissimos enim nisi rem provident
+      molestias sit tempore omnis recusandae esse sequi officia sapiente.
+    </p> -->
+    <!-- <div id="coords">(координаты покажутся здесь)</div>
+
+    <div id="field">
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      .
+    </div>
+    <div class="triangle-right" style="left: -20px; top: -176px">1</div>
+    <div class="triangle-right" style="left: -10px; top: -178px">3</div>
+    <div class="triangle-right" style="left: 190px; top: -40px">4</div>
+    <div class="triangle-right" style="left: 200px; top: -42px">2</div> -->
+    <!-- <div id="field">
+      <img src="https://en.js.cx/clipart/ball.svg" id="ball" /> . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . .
+    </div> -->
+    <!-- <h2>Уведомление находится справа</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum
+      aspernatur quam ex eaque inventore quod voluptatem adipisci omnis nemo
+      nulla fugit iste numquam ducimus cumque minima porro ea quidem maxime
+      necessitatibus beatae labore soluta voluptatum magnam consequatur sit
+      laboriosam velit excepturi laborum sequi eos placeat et quia deleniti?
+      Corrupti velit impedit autem et obcaecati fuga debitis nemo ratione iste
+      veniam amet dicta hic ipsam unde cupiditate incidunt aut iure ipsum
+      officiis soluta temporibus. Tempore dicta ullam delectus numquam
+      consectetur quisquam explicabo culpa excepturi placeat quo sequi molestias
+      reprehenderit hic at nemo cumque voluptates quidem repellendus maiores
+      unde earum molestiae ad.
+    </p> -->
+    <!-- <table id="table">
+      <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Возраст</th>
+      </tr>
+      <tr>
+        <td>John</td>
+        <td>Smith</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>Pete</td>
+        <td>Brown</td>
+        <td>15</td>
+      </tr>
+      <tr>
+        <td>Ann</td>
+        <td>Lee</td>
+        <td>5</td>
+      </tr>
+    </table> -->
+    <!-- <ul id="ul">
+      <li id="one">1</li>
+      <li id="two">4</li>
+    </ul> -->
+    <!-- <a name="list">the list</a>
+    <ul>
+      <li><a href="http://google.com">http://google.com</a></li>
+      <li><a href="/tutorial">/tutorial.html</a></li>
+      <li><a href="local/path">local/path</a></li>
+      <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+      <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+      <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+    </ul> -->
+    <!-- <div data-widget-name="menu">Choose the genre</div> -->
+    <!-- <ul id="ul">
+      <li>
+        Животные
+        <ul>
+          <li>
+            Млекопитающие
+            <ul>
+              <li>Коровы</li>
+              <li>Ослы</li>
+              <li>Собаки</li>
+              <li>Тигры</li>
+            </ul>
+          </li>
+          <li>
+            Другие
+            <ul>
+              <li>Змеи</li>
+              <li>Птицы</li>
+              <li>Ящерицы</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        Рыбы
+        <ul>
+          <li>
+            Аквариумные
+            <ul>
+              <li>Гуппи</li>
+              <li>Скалярии</li>
+            </ul>
+          </li>
+          <li>
+            Морские
+            <ul>
+              <li>Морская форель</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul> -->
+    <!-- <div id="container"></div> -->
+    <!-- <button onclick="startClock()" class="start">Старт</button> -->
+    <!-- <button id="createElem" onclick="createElem()">Create</button> -->
+    <!-- <ol id="elem">
+      <li>Привет</li>
+      <li>Мир</li>
+    </ol> -->
+    <!-- <table border="1" id="tb1">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table> -->
+    <!-- <html>
+      <body>
+        <div>Пользователи:</div>
+        <ul>
+          <li>Джон</li>
+          <li>Пит</li>
+        </ul>
+      </body>
+    </html> -->
+    <!-- Основы JS
+    <button onclick="alert1()">task1</button>
+    <button onclick="alert2()">task2</button>
+    <button onclick="alert3()">task3</button>
+    <button onclick="askName()">task7</button>
+    <button onclick="sum()">task11</button>
+    <button onclick="jsName()">task13</button>
+    <button onclick="findTheNumber()">task14</button>
+    <button onclick="logIn()">task25</button>
+    <button onclick="evenNums()">task28</button>
+    <button onclick="rewrite()">task29</button>
+    <button onclick="hundredAnd()">task30</button>
+    <button
+      onclick="naturalNums(parseInt(prompt('Введите число до которого будет осуществлен поиск простых чисел: ',10)))"
+    >
+      task31
+    </button>
+    <button
+      onclick="min1(+prompt('Введите число а: '),+prompt('Введите число b: '))"
+    >
+      task36
+    </button>
+    <button
+      onclick="pow(+prompt('Введите число а: '),+prompt('Введите число b: '))"
+    >
+      task37
+    </button>
+
+     Объекты JS 
+    <button onclick="isEmpty(schedule)">task2</button>
+    <button onclick="sum(salaries)">task3</button>
+
+    <script>
+      "use strict";
+      // task1
+      function alert1() {
+        alert("Я JavaScript!");
+      }
+    </script> -->
+    <script src="Dom.js"></script>
+  </body>
+</html>
